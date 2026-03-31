@@ -4,7 +4,7 @@ echo "===== SYSTEM MONITOR ====="
 echo ""
 
 echo "--- CPU Usage ---"
-top -bn1 | grep "Cpu(s)" | awk '{print "CPU Usage: " $2 "%"}'
+top -bn1 | awk '/^Cpu(s)/{print "CPU Usage: " $2 "%"}'
 
 echo ""
 echo "--- Memory Usage ---"
@@ -19,4 +19,4 @@ echo "--- Top 5 Processes ---"
 ps aux --sort=-%cpu | awk 'NR<=6 {print $1, $2, $3"%", $11}'
 
 echo ""
-echo "=========================="
+echo "==========================="
