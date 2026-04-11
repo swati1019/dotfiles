@@ -2,10 +2,10 @@
 
 process="sleep"
 log="/var/watchdog.log"
-timestamp=$(date +"%Y-%m-%d_%H_%M_%S")
 while true; do
+timestamp=$(date +"%Y-%m-%d_%H_%M_%S")
 if ! pgrep -x "$process" > /dev/null; then 
-echo "[$timestamp] $process not fount Restarting..." >> $log
+echo "[$timestamp] $process not found Restarting..." >> $log
 $process 60 &
 echo "[$timestamp] $process restarted!!" >> $log
 else 
