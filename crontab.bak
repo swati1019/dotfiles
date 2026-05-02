@@ -1,0 +1,4 @@
+* * * * * /home/swati/scripts/system-monitor.sh >> /var/log/monitor.log 2>&1
+0 2 * * * /home/swati/scripts/log-cleaner.sh
+0 3 * * * /home/swati/scripts/backup.sh
+@reboot /home/swati/scripts/watchdog.sh & 
