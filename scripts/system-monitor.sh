@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo -e "\e[1;36m===== SYSTEM MONITOR =====\e[0m"
-echo ""
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+LOGFILE="/var/log/monitor.log"
+exec >> "$LOGFILE" 2>&1
+echo "[$TIMESTAMP] ===== SYSTEM MONITOR ====="
 
 echo "--- CPU Usage ---"
 top -bn1 | awk '/%Cpu/{print "\033[32mCPU Usage: " $2 "%\033[0m"}'
@@ -18,5 +20,6 @@ echo ""
 echo "--- Top 5 Processes ---"
 ps aux --sort=-%cpu | awk 'NR<=6 {print $1, $2, $3"%", $11}'
 
+echo "[$TIMESTAMP] ===== END ====="
 echo ""
-echo "==========================="
+
