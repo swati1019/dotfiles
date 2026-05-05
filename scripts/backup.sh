@@ -2,7 +2,7 @@
 
 SOURCE="/home/swati"
 BACKUP_DIR="/var/backup"
-LOG="/var/backup.log"
+LOG="/var/log/backup.log"
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 
 mkdir -p $BACKUP_DIR
