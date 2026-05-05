@@ -1,7 +1,7 @@
 #! /bin/bash
 
 process="sleep"
-log="/var/watchdog.log"
+log="/var/log/watchdog.log"
 while true; do
 timestamp=$(date +"%Y-%m-%d_%H_%M_%S")
 if ! pgrep -x "$process" > /dev/null; then 
